@@ -17,6 +17,7 @@
     <mvc:resources mapping="/js/**" location="/resources/js/"/>
     <mvc:resources mapping="/images/**" location="/resources/images/"/>
     <mvc:resources mapping="/css/**" location="/resources/css/"/>
+    <mvc:resources mapping="**" location="/resources/css/"/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
@@ -25,6 +26,7 @@
     </bean>
 
     <context:component-scan base-package="kroryi.springex.controller"/>
+    <context:component-scan base-package="kroryi.springex.config"/>
 
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="formatters">
