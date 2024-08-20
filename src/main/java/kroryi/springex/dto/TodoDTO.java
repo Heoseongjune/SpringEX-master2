@@ -1,12 +1,11 @@
 package kroryi.springex.dto;
 
 
-import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.NotEmpty;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
 import lombok.*;
 
 import java.time.LocalDate;
-
 
 @ToString
 @Data
