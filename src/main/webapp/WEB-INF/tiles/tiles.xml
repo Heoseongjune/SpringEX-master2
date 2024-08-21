@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- 기본 레이아웃 정의 -->
+    <definition name="base.layout" template="/WEB-INF/tiles/default.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/layouts/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/tiles/layouts/footer.jsp"/>
+        <put-attribute name="sidebar" value="/WEB-INF/tiles/layouts/sidebar.jsp"/>
+        <put-attribute name="logout_modal" value="/WEB-INF/tiles/layouts/logout_modal.jsp"/>
+        <put-attribute name="bootstrap" value="/WEB-INF/tiles/layouts/bootstrap.jsp"/>
+        <put-attribute name="body" value=""/>
+    </definition>
+
+
+    <!-- 관리자페이지 레이아웃-->
+    <definition name="admin.layout" template="/WEB-INF/views/admin/layouts/admin-default.jsp">
+        <put-attribute name="admin-common" value="/WEB-INF/views/admin/layouts/admin-common.jsp"/>
+        <put-attribute name="admin-sidebar" value="/WEB-INF/views/admin/layouts/admin-sidebar.jsp"/>
+        <put-attribute name="admin-header" value="/WEB-INF/views/admin/layouts/admin-header.jsp"/>
+        <put-attribute name="admin-footer" value="/WEB-INF/views/admin/layouts/admin-footer.jsp"/>
+        <put-attribute name="admin-bootstrap" value="/WEB-INF/views/admin/layouts/admin-bootstrap.jsp"/>
+        <put-attribute name="admin-logout-modal" value="/WEB-INF/views/admin/layouts/admin-logout-modal.jsp"/>
+        <put-attribute name="admin-body" value=""/>
+    </definition>
+
+    <!-- Home 페이지 정의 -->
+    <definition name="admin.index.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/index.jsp"/>
+    </definition>
+
+<!--    관리자 회원관리 페이지 정의-->
+    <definition name="admin.memberlist.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/member/admin-member-list.jsp"/>
+    </definition>
+
+    <definition name="admin.memberregister.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/member/admin-member-register.jsp"/>
+    </definition>
+    <definition name="admin.memberview.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/member/admin-member-view.jsp"/>
+    </definition>
+    <definition name="admin.memberupdate.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/member/admin-member-update.jsp"/>
+    </definition>
+
+    <!--    관리자 Todo 관리 페이지 정의-->
+    <definition name="admin.todolist.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/todo/list.jsp"/>
+    </definition>
+    <definition name="admin.todoregister.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/todo/register.jsp"/>
+    </definition>
+    <definition name="admin.todoview.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/todo/read.jsp"/>
+    </definition>
+    <definition name="admin.todoupdate.page" extends="admin.layout">
+        <put-attribute name="admin-body" value="/WEB-INF/views/admin/todo/modify.jsp"/>
+    </definition>
+
+</tiles-definitions>

@@ -2,6 +2,7 @@ package kroryi.springex.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,69 +11,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminController {
     @GetMapping("/")
-    public String home() {
-
-        return "/admin/home";
+    public String home(Model model) {
+        return "admin.index.page";
     }
 
-    @GetMapping("/buttons")
-    public String buttons() {
-        return "/admin/buttons";
+    @GetMapping("/memberlist")
+    public String memberlist(Model model) {
+        model.addAttribute("test","testetstesetse");
+        return "admin.memberlist.page";
     }
 
-    @GetMapping("/blank")
-    public String blank() {
-        return "/admin/blank";
+    @GetMapping("/memberregister")
+    public String memberregister(Model model) {
+        return "admin.memberregister.page";
     }
 
-    @GetMapping("/cards")
-    public String cards() {
-        return "/admin/cards";
+    @GetMapping("/memberupdate")
+    public String memberupdate(Model model) {
+        return "admin.memberupdate.page";
     }
 
-    @GetMapping("/charts")
-    public String charts() {
-        return "/admin/charts";
+    @GetMapping("/memberview")
+    public String memberview(Model model) {
+        return "admin.memberview.page";
     }
 
-    @GetMapping("/forgot-password")
-    public String forgotPassword() {
-        return "/admin/forgot-password";
-    }
 
-    @GetMapping("/login")
-    public String login() {
-        return "/admin/login";
-    }
-
-    @GetMapping("/register")
-    public String register() {
-        return "/admin/register";
-    }
-
-    @GetMapping("/tables")
-    public String tables() {
-        return "/admin/tables";
-    }
-
-    @GetMapping("/utilities-animation")
-    public String utilitiesAnimation() {
-        return "/admin/utilities-animation";
-    }
-
-    @GetMapping("/utilities-border")
-    public String utilitiesBorder() {
-        return "/admin/utilities-border";
-    }
-
-    @GetMapping("/utilities-color")
-    public String utilitiesColor() {
-        return "/admin/utilities-color";
-    }
-
-    @GetMapping("/utilities-other")
-    public String utilitiesOther() {
-        return "/admin/utilities-other";
-    }
 
 }

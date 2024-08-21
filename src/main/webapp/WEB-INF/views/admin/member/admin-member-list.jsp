@@ -1,14 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-<script src="/js/bootstrap.bundle.js"></script>
 
-<html>
-<head>
-    <title>Todo List페이지</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-</head>
 <body>
 
 <h1>Todo List 페이지</h1>
@@ -47,7 +39,7 @@ ${responeseDTO.next} :
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Search</h5>
-                <form action="/todo/list" method="get">
+                <form action="/admin/todo/list" method="get">
                     <input type="hidden" name="size" value="${pageRequestDTO.size}">
                     <div class="mb-3">
                         <input type="checkbox" name="finished" ${pageRequestDTO.finished?"checked":""}>완료여부
@@ -74,15 +66,14 @@ ${responeseDTO.next} :
 </div>
 
 <div class="card-body">
-    <h5 class="card-title">내가 해야할일 목록</h5>
+    <h5 class="card-title">회원 리스트</h5>
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">번호</th>
-            <th scope="col">제목</th>
-            <th scope="col">작성자</th>
-            <th scope="col">종료일자</th>
-            <th scope="col">완료여부</th>
+            <th scope="col">No</th>
+            <th scope="col">Id</th>
+            <th scope="col">비밀번호</th>
+            <th scope="col">이름</th>
         </tr>
         </thead>
         <tbody>
@@ -90,7 +81,7 @@ ${responeseDTO.next} :
 
             <tr>
                 <th scope="row">
-                    <a href="/todo/read?tno=${dto.tno}&${pageRequestDTO.link}"
+                    <a href="/admin/todo/read?tno=${dto.tno}&${pageRequestDTO.link}"
                        class="text-decoration-none" data-tno="${dto.tno}">
                         <c:out value="${dto.tno}"/>
                     </a>
@@ -98,7 +89,6 @@ ${responeseDTO.next} :
                 <td>${dto.title}</td>
                 <td>${dto.writer}</td>
                 <td>${dto.dueDate}</td>
-                <td>${dto.finished}</td>
 
             </tr>
 
@@ -148,7 +138,7 @@ ${responeseDTO.next} :
         (e) => {
             e.preventDefault()
             e.stopPropagation()
-            self.location = '/todo/list'
+            self.location = '/admin/todo/list'
         }, false)
 </script>
 </body>
