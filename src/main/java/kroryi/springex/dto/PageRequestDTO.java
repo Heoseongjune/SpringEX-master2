@@ -34,11 +34,11 @@ public class PageRequestDTO {
 
     private String link;
 
-    String[] types;
-    String keyword;
-    boolean finished;
-    LocalDate from;
-    LocalDate to;
+    private String[] types;
+    private String keyword;
+    private boolean finished;
+    private LocalDate from;
+    private LocalDate to;
 
 
     public int getSkip() {
@@ -60,6 +60,13 @@ public class PageRequestDTO {
                 builder.append("&types=" + types[i]);
             }
         }
+        if (from != null) {
+            builder.append("&from=" + from.toString());
+        }
+
+        if (to != null) {
+            builder.append("&to=" + to.toString());
+        }
         if (keyword != null) {
             try {
                 builder.append("&keyword=" + URLEncoder.encode(keyword, "UTF-8"));
@@ -68,13 +75,7 @@ public class PageRequestDTO {
             }
         }
 
-        if (from != null) {
-            builder.append("&from" + from.toString());
-        }
 
-        if (to != null) {
-            builder.append("&to" + to.toString());
-        }
         log.info(builder.toString());
         return builder.toString();
     }

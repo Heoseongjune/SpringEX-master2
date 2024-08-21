@@ -64,7 +64,7 @@ ${responeseDTO.next} :
                     <div class="input-group mb-3">
                         <div class="float-end">
                             <button class="btn btn-primary" type="submit">검색</button>
-                            <button class="btn btn-info clearbtn" type="reset">삭제</button>
+                            <button class="btn btn-info clearBtn" type="reset">삭제</button>
                         </div>
                     </div>
                 </form>
