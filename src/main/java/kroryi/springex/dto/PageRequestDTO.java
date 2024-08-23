@@ -39,6 +39,9 @@ public class PageRequestDTO {
     private boolean finished;
     private LocalDate from;
     private LocalDate to;
+    private String phoneNumber;
+
+
 
 
     public int getSkip() {
