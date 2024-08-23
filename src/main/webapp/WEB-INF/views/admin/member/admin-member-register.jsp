@@ -8,26 +8,22 @@
 </head>
 <body>
 <div class="card-body">
-    <form action="/admin/member/register" method="post">
+    <form action="/todo/register" method="post">
         <div class="input-group mb-3">
             <span class="input-group-text"> ID :</span>
-            <input type="text" name="mid" class="form-control" placeholder="아이디">
+            <input type="text" name="title" class="form-control" placeholder="아이디">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text"> 비밀번호 :</span>
-            <input type="password" name="mpw" class="form-control" placeholder="비밀번호" id="password" >
+            <input type="password" name="password" class="form-control" placeholder="dueDate" id="password" >
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text"> 비밀번호 확인 :</span>
-            <input type="password" name="mpw2" class="form-control" placeholder="비밀번호 확인" id="repassword" >
+            <span class="input-group-text"> 비밀번호 :</span>
+            <input type="password" name="password" class="form-control" placeholder="dueDate" id="repassword" >
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text"> 이름 :</span>
             <input type="text" name="mname" class="form-control" placeholder="이름">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text"> 이름 :</span>
-            <input type="text" name="phoneNumber" class="form-control" placeholder="휴대폰번호">
         </div>
         <div class="my-4">
             <div class="float-end">

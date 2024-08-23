@@ -38,8 +38,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">회원관리</h6>
-                <a class="collapse-item" href="/admin/member/register">회원가입</a>
-                <a class="collapse-item" href="/admin/member/list">회원목록</a>
+                <a class="collapse-item" href="/admin/buttons">회원가입</a>
+                <a class="collapse-item" href="/admin/cards">회원목록</a>
             </div>
         </div>
     </li>
@@ -53,7 +53,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Todo</h6>
                 <a class="collapse-item" href="/admin/todo/list/">Todo목록보기</a>
-                <a class="collapse-item" href="/admin/todo/register/">Todo등록</a>
+                <a class="collapse-item" href="/admin/todo/register">Todo등록</a>
             </div>
         </div>
     </li>

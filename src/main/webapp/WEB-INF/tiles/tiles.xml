@@ -25,13 +25,6 @@
         <put-attribute name="admin-body" value=""/>
     </definition>
 
-<!--    로그인페이지 레이아웃-->
-    <definition name="login.page" template="/WEB-INF/views/admin/login/login.jsp"/>
-
-    <definition name="register.page" template="/WEB-INF/views/admin/login/member-register.jsp"/>
-
-
-
     <!-- Home 페이지 정의 -->
     <definition name="admin.index.page" extends="admin.layout">
         <put-attribute name="admin-body" value="/WEB-INF/views/admin/index.jsp"/>
@@ -64,20 +57,6 @@
     </definition>
     <definition name="admin.todoupdate.page" extends="admin.layout">
         <put-attribute name="admin-body" value="/WEB-INF/views/admin/todo/modify.jsp"/>
-    </definition>
-
-    <!--    관리자 member 관리 페이지 정의-->
-    <definition name="admin.memberlist.page" extends="admin.layout">
-        <put-attribute name="admin-body" value="/WEB-INF/views/admin/member/admin-member-list.jsp"/>
-    </definition>
-    <definition name="admin.memberregister.page" extends="admin.layout">
-        <put-attribute name="admin-body" value="/WEB-INF/views/admin/member/admin-member-register.jsp"/>
-    </definition>
-    <definition name="admin.memberview.page" extends="admin.layout">
-        <put-attribute name="admin-body" value="/WEB-INF/views/admin/member/admin-member-view.jsp"/>
-    </definition>
-    <definition name="admin.memberupdate.page" extends="admin.layout">
-        <put-attribute name="admin-body" value="/WEB-INF/views/admin/member/admin-member-modify.jsp"/>
     </definition>
 
 </tiles-definitions>

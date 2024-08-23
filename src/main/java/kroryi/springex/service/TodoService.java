@@ -3,7 +3,6 @@ package kroryi.springex.service;
 import kroryi.springex.dto.PageRequestDTO;
 import kroryi.springex.dto.PageResponseDTO;
 import kroryi.springex.dto.TodoDTO;
-import kroryi.springex.dto.UserDTO;
 
 import java.util.List;
 
@@ -20,5 +19,4 @@ public interface TodoService {
     void remove(Long tno);
 
     void modify(TodoDTO dto);
-
 }

@@ -39,15 +39,20 @@ ${responeseDTO.next} :
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Search</h5>
-                <form action="/admin/member/list" method="get">
+                <form action="/admin/todo/list" method="get">
                     <input type="hidden" name="size" value="${pageRequestDTO.size}">
-
+                    <div class="mb-3">
+                        <input type="checkbox" name="finished" ${pageRequestDTO.finished?"checked":""}>완료여부
+                    </div>
                     <div class="mb-3">
                         <input type="checkbox" name="types" value="t" ${pageRequestDTO.checkType("t")?"checked":""}>제목
                         <input type="checkbox" name="types" value="w" ${pageRequestDTO.checkType("w")?"checked":""}>작성자
                         <input type="text" name="keyword" class="form-control" value="${pageRequestDTO.keyword}">
                     </div>
-
+                    <div class="input-group mb-3 dueDateDiv">
+                        <input type="date" name="from" class="form-control" value="${pageRequestDTO.from}">
+                        <input type="date" name="to" class="form-control" value="${pageRequestDTO.to}">
+                    </div>
                     <div class="input-group mb-3">
                         <div class="float-end">
                             <button class="btn btn-primary" type="submit">검색</button>
@@ -69,7 +74,6 @@ ${responeseDTO.next} :
             <th scope="col">Id</th>
             <th scope="col">비밀번호</th>
             <th scope="col">이름</th>
-            <th scope="col">휴대폰번호</th>
         </tr>
         </thead>
         <tbody>
@@ -77,15 +81,15 @@ ${responeseDTO.next} :
 
             <tr>
                 <th scope="row">
-                    <a href="/admin/member/read?tno=${dto.tno}&${pageRequestDTO.link}"
+                    <a href="/admin/todo/read?tno=${dto.tno}&${pageRequestDTO.link}"
                        class="text-decoration-none" data-tno="${dto.tno}">
                         <c:out value="${dto.tno}"/>
                     </a>
                 </th>
-                <td>${dto.mid}</td>
-                <td>${dto.mpw}</td>
-                <td>${dto.mname}</td>
-                <td>${dto.phoneNumber}</td>
+                <td>${dto.title}</td>
+                <td>${dto.writer}</td>
+                <td>${dto.dueDate}</td>
+
             </tr>
 
         </c:forEach>
@@ -134,7 +138,7 @@ ${responeseDTO.next} :
         (e) => {
             e.preventDefault()
             e.stopPropagation()
-            self.location = '/admin/member /list'
+            self.location = '/admin/todo/list'
         }, false)
 </script>
 </body>
