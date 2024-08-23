@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kroryi.springex.mapper.UserMapper">
+
+    <sql id="search">
+
+        <where>
+            <if test="types !=null and types.length > 0">
+                <foreach collection="types" item="type" open="(" close=")" separator=" OR ">
+                    <if test="type == 't'.toString()">
+                        mid like concat('%', #{keyword},'%')
+                    </if>
+                    <if test="type == 'w'.toString()">
+                        mname like concat('%',#{keyword},'%')
+                    </if>
+                </foreach>
+            </if>
+            <if test="phoneNumber">
+                <trim prefix="and">
+                    phoneNumber = 1
+                </trim>
+            </if>
+            <if test="from != null and to != null">
+                <trim prefix="and">
+                    mpw between #{from} and #{to}
+                </trim>
+            </if>
+        </where>
+    </sql>
+
+    <select id="getTime" resultType="string">
+        select now()
+    </select>
+
+    <insert id="insert">
+        insert into tbl_member (mid,mpw,mname,phoneNumber)
+        values (#{mid},#{mpw},#{mname},#{phoneNumber})
+    </insert>
+
+    <select id="selectAll" resultType="kroryi.springex.domain.UserVO">
+        select * from tbl_member order by tno desc
+    </select>
+
+    <select id="selectOne" resultType="kroryi.springex.domain.UserVO">
+        select * from tbl_member where tno = #{tno}
+    </select>
+    <delete id="delete">
+        delete from tbl_member where tno = #{tno}
+    </delete>
+
+    <update id="update">
+        update tbl_member set mid = #{mid}, mname=#{mname}, mpw = #{mpw}, phoneNumber=#{phoneNumber} where tno = #{tno}
+    </update>
+
+    <select id="selectList" resultType="kroryi.springex.domain.UserVO">
+        select * from tbl_member
+<include refid="search"></include>
+        order by tno desc limit #{skip}, #{size}
+    </select>
+
+    <select id="getCount" resultType="int">
+        select count(tno) from tbl_member
+        <include refid="search"></include>
+    </select>
+
+    <select id="idCheck" resultType="kroryi.springex.domain.UserVO">
+        select mid from tbl_member
+        where mid = #{mid}
+    </select>
+
+    <select id="pwCheck" resultType="kroryi.springex.domain.UserVO">
+        select mpw from tbl_member
+        where mpw = #{mpw}
+    </select>
+
+    <select id="selectTwo" resultType="kroryi.springex.domain.UserVO">
+        select * from tbl_member where mid = #{mid}
+    </select>
+
+
+</mapper>

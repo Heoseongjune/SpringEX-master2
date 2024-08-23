@@ -1,10 +1,13 @@
 package kroryi.springex.mapper;
 
 import kroryi.springex.domain.TodoVO;
+import kroryi.springex.domain.UserVO;
 import kroryi.springex.dto.PageRequestDTO;
 import kroryi.springex.dto.PageResponseDTO;
 import kroryi.springex.dto.TodoDTO;
+import kroryi.springex.dto.UserDTO;
 import kroryi.springex.service.TodoService;
+import kroryi.springex.service.UserService;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,6 +31,10 @@ public class TodoMapperTests {
     @Autowired
     private TodoMapper todoMapper;
 
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private TodoService todoService;
@@ -118,5 +125,27 @@ public class TodoMapperTests {
         List<TodoVO> voList = todoMapper.selectList(pageRequestDTO);
 
         voList.forEach(vo -> log.info(vo));
+    }
+
+    @Test
+    public void testRegister1() {
+        UserDTO userDTO = UserDTO.builder()
+                .mid("테스트")
+                .mpw("123123123")
+                .mname("가나다")
+                .phoneNumber("01011112222")
+                .build();
+        userService.register(userDTO);
+    }
+
+    @Test
+    public void testInsert1() {
+        UserVO userVo = UserVO.builder()
+                .mid("스프링테스트")
+                .mpw("123123")
+                .mname("후?")
+                .phoneNumber("01012345678")
+                .build();
+        userMapper.insert(userVo);
     }
 }

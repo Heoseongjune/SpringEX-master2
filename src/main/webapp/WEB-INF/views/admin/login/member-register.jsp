@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="card-body">
-    <form action="/admin/member/register" method="post">
+    <form action="/login/register" method="post">
         <div class="input-group mb-3">
             <span class="input-group-text"> ID :</span>
             <input type="text" name="mid" class="form-control" placeholder="아이디">
